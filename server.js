@@ -24,9 +24,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs');//This is used to not continue with rendering the rest becaouse there's no next() call
-});
+// app.use((req, res, next) => {
+  // res.render('maintenance.hbs');//This is used to not continue with rendering the rest becaouse there's no next() call
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -45,10 +45,14 @@ app.get('/', (req, res) => {
   });
 });
 
-
+app.get('/portfolio', (req, res) => {
+  res.render('portfolio.hbs', {
+    pageTitle: 'Portfolio'
+  });
+});
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
-    pageTitle: 'About Page',
+    pageTitle: 'About Page'
   });
 });
 
